@@ -69,7 +69,9 @@ define([
     	 */
     	function logout(){
 
-    		var httpResource = Rest.resource('').post('logout');
+        var deferred = $q.defer();
+
+    		var httpResource = Rest.resource('user').post('logout');
   			httpResource('')
 	        .then(function(res) {			        
 	          log.info('User logged out', res.data);
@@ -81,7 +83,7 @@ define([
 	        })
 	        .catch(function(err) {
 	          log.error('Error logging out', err);
-	          deferred.reject({code: 'ERROR', error: err});
+	          deferred.reject({code: 'ERROR', error: err, message: 'Error logging out'});
 	        });
 
 		    return deferred.promise;

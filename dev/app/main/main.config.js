@@ -46,6 +46,7 @@ define([
         templateUrl: '',
         templateUrl: BASE_DIR_TPL + 'base.tpl.html',
         controller: 'MainBaseController',
+        controllerAs: 'ViewModel',
         resolve: {
           services: ['lazy',
             function(lazy) {
@@ -61,6 +62,7 @@ define([
         url: '/dashboard',
         templateUrl: BASE_DIR_TPL + 'dashboard.tpl.html',
         controller: 'MainDashboardController',
+        controllerAs: 'ViewModel',
         resolve: {
           services: ['lazy',
             function(lazy) {

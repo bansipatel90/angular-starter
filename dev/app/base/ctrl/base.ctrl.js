@@ -26,6 +26,7 @@ define([], function() {
   function controller() {
 
     // var ViewModel = this;
+
   }
 
 });

@@ -5,9 +5,14 @@
     form.auth-form-container(layout='column', ng-submit='ViewModel.loginUser()', no-validate, name='ViewModel.loginForm')
       md-input-container
         label Email
-        input(type='email', name='email', ng-required='', ng-model='ViewModel.user.username')
+        input(type='email', name='email', ng-required, ng-model='ViewModel.user.username')
       md-input-container
         label Password
-        input(type='password', name='password', ng-required='', ng-model='ViewModel.user.password', ng-minLength='6')
+        input(type='password', name='password', ng-model='ViewModel.user.password', ng-required, ng-minLength='6')
       md-button.md-raised.md-primary.no-margin(type='submit', ng-disabled='ViewModel.loginForm.$invalid')
         | Submit
+  .auth-page-footer(layout='column', layout-align='center center')
+    p.auth-page-links
+      a(href='#') I forgot my password
+    p.auth-page-copyright
+      | &copy; Actonate
