@@ -1,0 +1,22 @@
+div
+  h2 Login
+  //- md-content.login-form(layout='row', layout-align='space-around', layout-padding='layout-padding', ng-cloak='ng-cloak')
+  //-   md-card(flex='flex', flex-gt-sm='50', flex-gt-md='33')
+  //-     //- md-toolbar()
+  //-     //-   .md-toolbar-tools
+  //-     //-     img(src='actonate.png', style='height: 90px;margin:auto;')
+  //-     md-card-content
+  //-       div()
+  //-         form(name='Form')
+  //-           h1(ng-bind='ViewModel.failed' style='color:red;')
+  //-           md-input-container.md-block(flex-gt-sm='')
+  //-             label Username 
+  //-             input(required='', name='userName', ng-model='ViewModel.userCredentials.username')
+  //-             div(ng-messages='loginForm.userName.$error')
+  //-               div(ng-message='required') UserName required.
+  //-           md-input-container.md-block(flex-gt-sm='')
+  //-             label Password
+  //-             input(required='', name='password', ng-model='ViewModel.userCredentials.password')
+  //-             div(ng-messages='userCredentialsForm.password.$error')
+  //-               div(ng-message='required') Password required.
+  //-           md-button.md-raised.md-primary(ng-disabled='!Form.$valid' , ng-click='ViewModel.triggerApi()', style="width:100%;") &nbsp Login &nbsp

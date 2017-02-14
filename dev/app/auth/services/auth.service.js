@@ -2,70 +2,91 @@ define([
 	'app-bootstrap'
 	],function(){
 	
-		angular.module('act.Base').factory('AuthService', AuthService);
-		
-	    AuthService.$inject = ['logger','Rest','$q','$state'];
-	    function AuthService(logger,Rest,$q,$state) {
-	    	
-	    	var log = logger.log().child('AuthService');
-	    	return {
-	    		login:login,
-	    		logout:logout
-	    	};
-	   	/////////////////////////////////////////////////////////
+	angular.module('act.Auth')
+	.factory('AuthService', AuthService);
+	
+  AuthService.$inject = ['logger', 'Rest', '$q', 'SessionService'];
+  
+  function AuthService(logger, Rest, $q, SessionService) {
+    	
+  	var log = logger.log().child('AuthService');
 
+  	return {
+  		login: login,
+  		logout: logout
+  	};
 
-	   		/**
-	   		 * { function_description }
-	   		 *
-	   		 * @public
-	   		 *
-	   		 * @memberof   (parent_name_path)
-	   		 *
-	   		 * @author     manoj
-	   		 *
-	   		 * @param      {<type>}  data    The data
-	   		 */
+   	/////////////////////////////////////////////////////////
 
-	    	function login(data){
-	    		
-              
-    			 var httpResource = Rest.resource('').post('auth');
-    			 httpResource(data)
-			        .then(function(res) {			        
-			          log.info('API Response', res.data);			          		         			     
-			          $state.go("app.main.dash");    
-			        })
-			        .catch(function(err) {
-			          log.error('API Error', err);
-			        });
-	    	}
+    	/**
+    	 * Login the user
+    	 *
+    	 * @public
+    	 *
+    	 * @memberof   act.Auth.AuthService
+    	 *
+    	 * @author     shoaibmerchant
+    	 *
+    	 * @param      {Object}  user    User credentials (username, password)
+    	 * @return     {Object}  Promise
+    	 */
+    	function login(user) {
+    	
+    		var deferred = $q.defer();
+  			var httpResource = Rest.resource('').post('auth');
+  			 
+  			var requestObject = {
+  				username: user.username,
+  				password: user.password
+  			};
 
-	    	/**
-	    	 * { function_description }
-	    	 *
-	    	 * @public
-	    	 *
-	    	 * @memberof   (parent_name_path)
-	    	 *
-	    	 * @author     manoj
-	    	 *
-	    	 * @param      {<type>}  data    The data
-	    	 */
-	    	function logout(){
+  			httpResource(requestObject)
+	        .then(function(res) {			        
+	          log.info('User logged in', res.data);
 
-	    		var httpResource = Rest.resource('').post('logout');
-    			 httpResource('')
-			        .then(function(res) {			        
-			          log.info('Auth service response', res.data);			          		         			     
-			          $state.go("app1.login");    
-			        })
-			        .catch(function(err) {
-			          log.error('API Error', err);
-			          $state.go("app1.login");   
-			        });
-	    	}
+	          // set user logged in
+	          SessionService.setLoggedIn(res.data);
+	          deferred.resolve({code: 'SUCCESS', data: res.data});
+	        })
+	        .catch(function(err) {
+	          log.error('Error logging in', err);
+	          deferred.reject({code: 'ERROR', error: err});
+	        });
 
+	      return deferred.promise;
     	}
-    }
+
+    	/**
+    	 * Logout the user
+    	 *
+    	 * @public
+    	 *
+    	 * @memberof   act.Auth.AuthService
+    	 *
+    	 * @author     manoj
+    	 *
+    	 * @return     {Object}  Promise
+    	 */
+    	function logout(){
+
+    		var httpResource = Rest.resource('').post('logout');
+  			httpResource('')
+	        .then(function(res) {			        
+	          log.info('User logged out', res.data);
+
+	          // set user logged out
+	          SessionService.setLoggedOut();
+
+	          deferred.resolve({code: 'SUCCESS', data: res.data});
+	        })
+	        .catch(function(err) {
+	          log.error('Error logging out', err);
+	          deferred.reject({code: 'ERROR', error: err});
+	        });
+
+		    return deferred.promise;
+    	}
+
+  	}
+  }
 );

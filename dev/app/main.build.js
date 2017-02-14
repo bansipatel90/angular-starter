@@ -6,6 +6,7 @@ define([
   'app-bootstrap',
 
   // Modules Configs
+  'app/base/base.config',
   'app/auth/auth.config',
   'app/main/main.config'
 ], function() {
@@ -15,13 +16,14 @@ define([
     'act.Globals',
 
     // All V2 Modules
+    'act.Auth',
     'act.Main',
 
     // All 3rd party modules
     'ngMaterial',
     'ngAnimate',
     'ngAria',
-	'ngMaterialSidemenu'
+	  'ngMaterialSidemenu'
   ]);
 
   // /////////////////////////////////////

@@ -4,8 +4,8 @@
 define([], function() {
 
   angular
-    .module('act.Base')
-    .controller('ErrorController', controller);
+    .module('act.Auth')
+    .controller('AuthBaseController', controller);
 
   controller.$inject = [];
 
@@ -14,17 +14,17 @@ define([], function() {
   // //////////////////////////////////////////////////////
 
   /**
-   * Application Base Error Controller
+   * Login Controller
    *
    * @public
    *
-   * @memberof   act.Base
+   * @memberof   act.Auth
    *
    * @author     shoaibmerchant
+   *
    */
   function controller() {
     // var ViewModel = this;
   }
 
 });
-

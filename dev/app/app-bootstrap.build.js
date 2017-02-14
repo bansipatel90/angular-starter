@@ -21,8 +21,7 @@ define(['act-lazy', 'act-rest', 'act-log'], function() {
   actGlobals.constant('APP_LOGGING_ENABLED', true);
   actGlobals.constant('APP_LOGGING_LEVEL', 'trace');
   actGlobals.constant('APP_REST_URL', 'http://localhost:1337');
-
-  // @endifnew Image().src = '/';
+  // @endif
 
   /**
    *  System Constants
@@ -35,29 +34,29 @@ define(['act-lazy', 'act-rest', 'act-log'], function() {
 
   // App Module Definitions Starts here -----------------------------------------------------------
 
-  // Base for All Modules
+  // Services, Directives and Filters
+  angular.module('act.Services', []);
+  angular.module('act.Directives', []);
+  angular.module('act.Filters', []);
 
+  // Base for All Modules
   angular.module('act.Base', [
     // 3rd party
     'ui.router',
-    // act modules
+    
+    // addon modules
     'act.Globals',
-    'act.lazy',
-    'act.rest',
-    'act.log'
-  ]);
-  angular.module('act.Main', [
-    // 3rd party
-    'ui.router',
+    'act.Services',
+    'act.Directives',
+    'act.Filters',
+    
     // act modules
-    'act.Globals',
     'act.lazy',
     'act.rest',
     'act.log'
   ]);
 
-  // Define all Modules
-  // angular.module('act.Main', ['act.Base']);
-  angular.module('act.Main.profile', ['act.Base']);
-
+  // define all application modules here
+  angular.module('act.Auth', ['act.Base']);
+  angular.module('act.Main', ['act.Base']);
 });
