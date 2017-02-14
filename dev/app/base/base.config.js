@@ -5,7 +5,8 @@ define([
   'app-bootstrap',
 
   // load all services
-  '../services/session.service'
+  '../services/session.service',
+  '../services/toast.service'
 ], function() {
 
   angular
@@ -173,9 +174,9 @@ define([
           function (event, toState, toParams, fromState, fromParams, error) {
             
             if (error.code && error.code === 'AUTHORIZED') {
-              $state.go('app.main.dash');
+              $state.go('app.main.dashboard');
             } else if (error.code && error.code === 'UNAUTHORIZED') {
-              $state.go('app1.login');
+              $state.go('app.auth.login');
             }
 
         });

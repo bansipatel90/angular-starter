@@ -44,10 +44,16 @@ define([
       .state('app.main', {
         abstract: true,
         templateUrl: '',
+        templateUrl: BASE_DIR_TPL + 'base.tpl.html',
+        controller: 'MainBaseController',
         resolve: {
+          services: ['lazy',
+            function(lazy) {
+              return lazy.load(BASE_DIR_CTRL + 'base.ctrl.js');
+            }
+          ],
           session: ['SessionService', function(SessionService) {
-              
-            return  SessionService.load();                   
+            return SessionService.isLoggedInPromise();
           }]
         }
       })
@@ -60,10 +66,7 @@ define([
             function(lazy) {
               return lazy.load(BASE_DIR_CTRL + 'dashboard.ctrl.js');
             }
-          ],
-          session: ['SessionService',function(SessionService) {
-            return  SessionService.getdata();
-          }]
+          ]
         }
       });    
   }

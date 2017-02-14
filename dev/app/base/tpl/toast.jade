@@ -1,0 +1,9 @@
+md-toast.act-toast()
+  span.md-toast-text(layout='row', layout-align='start center', flex='grow')
+    .act-toast-type(ng-class='ViewModel.type')
+      md-progress-circular.md-accent.act-toast-spinner(ng-if='ViewModel.type === \'loading\'', md-mode='indeterminate', md-diameter='22')
+      i.icon.storedock-delete(ng-if='ViewModel.type === \'error\'')
+      i.icon.storedock-checkmark(ng-if='ViewModel.type === \'success\'')
+    .act-toast-message(ng-bind='ViewModel.message')
+  md-button(ng-if='ViewModel.buttons.close', ng-click='ViewModel.closeToast()')
+    | Close

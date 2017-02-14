@@ -33,7 +33,7 @@ define([
     	function login(user) {
     	
     		var deferred = $q.defer();
-  			var httpResource = Rest.resource('').post('auth');
+  			var httpResource = Rest.resource('user').post('login');
   			 
   			var requestObject = {
   				username: user.username,
@@ -41,7 +41,7 @@ define([
   			};
 
   			httpResource(requestObject)
-	        .then(function(res) {			        
+	        .then(function(res) {		        
 	          log.info('User logged in', res.data);
 
 	          // set user logged in
@@ -50,7 +50,7 @@ define([
 	        })
 	        .catch(function(err) {
 	          log.error('Error logging in', err);
-	          deferred.reject({code: 'ERROR', error: err});
+	          deferred.reject({code: 'ERROR', error: err, message: 'Error logging in'});
 	        });
 
 	      return deferred.promise;

@@ -38,9 +38,10 @@ define([
     function load(){
         
         var deferred = $q.defer();
-        var httpResource = Rest.resource('').post('session');
+        var httpResource = Rest.resource('user').get('session');
 
-        loadPromise = httpResource('');
+        loadPromise = httpResource();
+        // loadPromise = $q.reject(false);
 
         loadPromise
           .then(function(res) {
