@@ -9,6 +9,36 @@
 	right: 0;
 }
 .main-sidenav {
+	md-content {
+		padding: 0;
+	}
+
+	.main-sidenav-logo-container {
+		padding: @app-padding-4 0;
+		border-bottom: 1px solid @app-grey-5;
+
+		.main-sidenav-logo {
+			height: 42px;
+
+			img {
+				height: 100%;
+			}
+		}
+		
+	}
+
+	.main-sidenav-menu {
+		padding: 0;
+
+		md-list-item {
+			&:hover {
+				background-color: @app-grey-7;
+			}
+		}
+		md-icon {
+			margin-left: 10px;
+		}
+	}
 }
 .main-toolbar-container {
 	.md-icon-button {
