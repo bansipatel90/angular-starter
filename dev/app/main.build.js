@@ -8,7 +8,8 @@ define([
   // Modules Configs
   'app/base/base.config',
   'app/auth/auth.config',
-  'app/main/main.config'
+  'app/main/main.config',
+  'app/main-users/main-users.config'
 ], function() {
 
   angular.module('act', [
@@ -18,12 +19,13 @@ define([
     // All V2 Modules
     'act.Auth',
     'act.Main',
+    'act.Main.Users',
 
     // All 3rd party modules
     'ngMaterial',
     'ngAnimate',
     'ngAria',
-	  'ngMaterialSidemenu'
+    'md.data.table'
   ]);
 
   // /////////////////////////////////////
