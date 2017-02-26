@@ -1,22 +1,31 @@
-.main-content.main-content-table.card-1(flex='1')
-	md-table-container
-		table(md-table='', md-row-select='', multiple='', ng-model='ViewModel.selected', md-progress='ViewModel.loadPromise')
-			thead(md-head='', md-order='ViewModel.query.order', md-on-reorder='ViewModel.load')
-				tr(md-row='')
-					th(md-column='')
-						span #
-					th(md-column='') First Name
-					th(md-column='') Last Name
-					th(md-column='') Email
-					th(md-column='') Role
-					th(md-column='') Last Logged In
-					th(md-column='') Actions
-			tbody(md-body='')
-				tr(md-row='', md-select='user', md-select-id='id', md-auto-select='', ng-repeat='user in ViewModel.users')
-					td(md-cell='') {{user.$index + 1}}
-					td(md-cell='') {{user.firstName}}
-					td(md-cell='') {{user.lastName}}
-					td(md-cell='') {{user.email}}
-					td(md-cell='') {{user.role}}
-					td(md-cell='') {{user.lastLoggedIn}}
-					td(md-cell='') Actions
+md-toolbar.main-subtoolbar(layout='row', layout-align='space-between center')
+	.main-subtoolbar-title(layout='row')
+		md-icon
+			i.material-icons
+				|	search
+		.main-subtoolbar-search
+			input(type='search', placeholder='Search by name')
+	.main-subtoolbar-actions
+.main-content(layout='column')
+	.main-content-table.card-1(flex='1')
+		md-table-container
+			table(md-table='', md-row-select='', multiple='', ng-model='ViewModel.selected', md-progress='ViewModel.loadPromise')
+				thead(md-head='', md-order='ViewModel.query.order', md-on-reorder='ViewModel.load')
+					tr(md-row='')
+						th(md-column='')
+							span #
+						th(md-column='') First Name
+						th(md-column='') Last Name
+						th(md-column='') Email
+						th(md-column='') Role
+						th(md-column='') Last Logged In
+						th(md-column='') Actions
+				tbody(md-body='')
+					tr(md-row='', md-select='user', md-select-id='id', md-auto-select='', ng-repeat='user in ViewModel.users')
+						td(md-cell='') {{user.$index + 1}}
+						td(md-cell='') {{user.firstName}}
+						td(md-cell='') {{user.lastName}}
+						td(md-cell='') {{user.email}}
+						td(md-cell='') {{user.role}}
+						td(md-cell='') {{user.lastLoggedIn}}
+						td(md-cell='') Actions

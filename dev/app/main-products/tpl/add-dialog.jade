@@ -1,0 +1,31 @@
+md-dialog.main-dialog(layout='column')
+	.main-dialog-header(layout='row')
+		h2.main-dialog-title
+			|	Add Product
+	.main-dialog-content(flex='grow', layout='column')
+		form(ng-cloak='', layout='column')
+			md-input-container
+				label
+					|	Name
+				input(type='text', name='name')
+			md-input-container
+				label
+					|	Description
+				textarea(name='description')
+			.main-uploader
+				.main-uploader-label
+					|	Upload Photo
+				.main-uploader-dropzone(layout='column', layout-align='center center', ngf-drop, ngf-select, ng-model='ViewModel.photo', accept='image/*', ngf-pattern='\'image/*\'', ng-if='!ViewModel.photoSelected')
+					|	Drop image here
+				.main-uploader-thumbnail(layout='column', ng-if='ViewModel.photoSelected')
+					img(ngf-thumbnail='ViewModel.photo')
+					.main-uploader-remove
+						md-button.md-primary(ng-click='ViewModel.removePhoto()')
+							| Remove
+	.main-dialog-footer(layout='row', layout-align='space-between center')
+		.main-dialog-footer-actions
+			md-button(ng-click='ViewModel.closeDialog()')
+				|	Close
+		.main-dialog-footer-actions
+			md-button.md-primary(ng-disabled='ViewModel.photoUploadInProgress')
+				|	Submit

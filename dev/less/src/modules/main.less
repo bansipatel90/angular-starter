@@ -8,6 +8,8 @@
 	left: 0;
 	right: 0;
 }
+
+// Main Sidenav
 .main-sidenav {
 	md-content {
 		padding: 0;
@@ -40,10 +42,161 @@
 		}
 	}
 }
+
+// Main Toolbar
 .main-toolbar-container {
 	.md-icon-button {
 		i {
 			color: @white;
 		}
+	}
+}
+
+// Main Subtoolbar
+.main-subtoolbar {
+	background-color: @white !important;
+	box-shadow: @app-shadow-1;
+	padding: 0 @app-padding-3;
+	
+	md-icon i {
+		color: @app-black-5;
+	}
+
+	.main-subtoolbar-title {
+		color: @app-black-5;
+		padding: 0 @app-padding-4;
+	}
+
+	.main-subtoolbar-search {
+		padding: @app-padding-5;
+
+		input {
+			border: 0;
+			font-size: @font-size-xlarge;
+		}
+	}
+}
+
+// Main Fab
+.main-fab-container {
+	.md-fab {
+		position: fixed !important;
+	}
+}
+
+// Main Content (area)
+.main-content {
+	padding: @app-padding-7;
+}
+
+// Main Table
+.main-content-table {
+	min-height: 450px;
+}
+
+// Main Grid
+.main-content-grid {
+
+	.main-grid-tile {
+		.main-grid-tile-header {
+			background-color: transparent;
+
+			md-icon {
+				i {
+					font-size: @font-size-3xlarge;
+				}
+			}
+		}
+
+		.main-grid-tile-content {
+			height: 100%;
+			width: 100%;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		.main-grid-tile-footer {
+			background-color: @white;
+
+			h4 {
+				color: @app-black-5;
+				font-size: @font-size-normal;
+			}
+		}
+	}
+}
+
+// Main Dialog
+.main-dialog {
+
+	width: 400px;
+	min-height: 550px;
+
+	&.small {
+		width: 300px;
+		min-height: 400px;
+	}
+	&.large {
+		width: 600px;
+		min-height: 800px;
+	}
+
+	.main-dialog-header {
+		padding: @app-padding-6;
+		
+		.main-dialog-title {
+		}
+	}
+	.main-dialog-content {
+		padding: @app-padding-6;
+		padding-top: @app-padding-3;
+	}
+	.main-dialog-footer {
+		border-top: 1px @app-grey-6 solid;
+		padding: @app-padding-5 @app-padding-5;
+
+		.main-dialog-footer-actions {
+
+		}
+		
+	}
+}
+
+// Main Uploader
+.main-uploader {
+	padding: @app-padding-4 @app-padding-2;
+
+	.main-uploader-label {
+		padding-bottom: @app-padding-6;
+		color: @app-black-7;
+	}
+
+	.main-uploader-dropzone {
+		background-color: @app-grey-7;
+		border: 4px @app-grey-5 dashed;
+		color: @app-black-7;
+		font-size: @font-size-xlarge;
+		min-height: 200px;
+
+		&.dragover {
+			border-color: @app-primary-color-6;
+			background-color: @app-primary-color-9;
+			color: @app-primary-color-5;
+		}
+	}
+
+	.main-uploader-thumbnail {
+		img {
+			min-height: 175px;
+			width: 100%;
+			border: 1px @app-grey-6 solid;
+		}
+	}
+
+	.main-uploader-remove {
+		padding-top: @app-padding-6;
 	}
 }

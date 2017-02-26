@@ -1,12 +1,12 @@
 /**
- * @namespace act.Users
+ * @namespace act.Products
  */
 define([
  'app-bootstrap'
 ], function() {
 
   angular
-    .module('act.Main.Users')
+    .module('act.Main.Products')
     .config(RouterConfig);
 
 
@@ -19,7 +19,7 @@ define([
   RouterConfig.$inject = ['APP_BASE_PATH', '$stateProvider', 'lazyProvider'];
 
   /**
-   * Configure the act.Main.Users module's routes
+   * Configure the act.Main.Products module's routes
    *
    * @public
    *
@@ -35,25 +35,27 @@ define([
    */
   function RouterConfig(APP_BASE_PATH, $stateProvider, lazyProvider) {
 
-    var BASE_DIR_CTRL = APP_BASE_PATH + 'app/main-users/ctrl/';
-    var BASE_DIR_TPL = APP_BASE_PATH + 'app/main-users/tpl/';
+    var BASE_DIR_CTRL = APP_BASE_PATH + 'app/main-products/ctrl/';
+    var BASE_DIR_TPL = APP_BASE_PATH + 'app/main-products/tpl/';
 
-    lazyProvider.configure('act.Main.Users');
+    lazyProvider.configure('act.Main.Products');
 
     $stateProvider
-      .state('app.main.users', {
-        url: '/users',
+      .state('app.main.products', {
+        url: '/products',
         templateUrl: BASE_DIR_TPL + 'base.tpl.html',
-        controller: 'MainUsersBaseController',
+        controller: 'MainProductsBaseController',
         controllerAs: 'ViewModel',
         resolve: {
           services: ['lazy',
             function(lazy) {
-              return lazy.load(BASE_DIR_CTRL + 'base.ctrl.js');
+              return lazy.load([
+                BASE_DIR_CTRL + 'base.ctrl.js',
+                'ng-file-upload'
+              ]);
             }
           ]
         }
       });
   }
-
 });

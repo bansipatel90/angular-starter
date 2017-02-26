@@ -17,6 +17,8 @@ requirejs.config({
     'oclazyload': 'packages/' + 'oclazyload/dist/ocLazyLoad.require.min',
     'angular-material-icons':'packages/'+'angular-material-icons/angular-material-icons',
     'angular-material-data-table': 'packages/' + 'angular-material-data-table/dist/md-data-table',
+    'ng-file-upload': 'packages/' + 'ng-file-upload/ng-file-upload.min',
+
     // Common Modules
     'act-lazy': 'common/act-lazy/main',
     'act-log': 'common/act-log/main',
@@ -38,6 +40,8 @@ requirejs.config({
     'oclazyload': ['angular'],
     'angular-material-icons':['angular'],
     'angular-material-data-table': ['angular', 'angular-material'],
+    'ng-file-upload': ['angular'],
+
     // ACT Modules
     'act-lazy': ['oclazyload'],
     'act-log': ['angular', 'debug'],

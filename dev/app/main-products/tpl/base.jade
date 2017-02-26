@@ -1,0 +1,54 @@
+md-toolbar.main-subtoolbar(layout='row', layout-align='space-between center')
+	.main-subtoolbar-title(layout='row')
+		md-icon
+			i.material-icons
+				|	search
+		.main-subtoolbar-search
+			input(type='search', placeholder='Search by name')
+	.main-subtoolbar-actions
+.main-fab-container
+	md-button.md-fab.md-primary.md-fab-bottom-right(ng-click='ViewModel.showAddDialog($event)')
+		md-icon
+			i.material-icons
+				|	add
+.main-content
+	.main-content-grid
+		md-grid-list(md-cols-xs='2', md-cols-sm='4', md-cols-md='6', md-cols-gt-md='6', md-row-height='1:1', md-gutter='25px')
+			md-grid-tile.main-grid-tile.card-1()
+				md-grid-tile-header.main-grid-tile-header(layout='row', layout-align='end center')
+					md-menu(md-position-mode='target-right target')
+						md-button.md-icon-button(aria-label='Open demo menu', ng-click='$mdMenu.open($event)')
+							md-icon(md-menu-origin='')
+								i.material-icons
+									|	more_vert
+						md-menu-content(width='2')
+							md-menu-item
+								md-button()
+									|	Edit
+							md-menu-item
+								md-button()
+									|	Delete
+				.main-grid-tile-content
+					img(src='assets/img/tile-placeholder.png', alt='Product A')
+				md-grid-tile-footer.main-grid-tile-footer
+					h4
+						|	Product A
+			md-grid-tile.main-grid-tile.card-1()
+				md-grid-tile-header.main-grid-tile-header(layout='row', layout-align='end center')
+					md-menu(md-position-mode='target-right target')
+						md-button.md-icon-button(aria-label='Open demo menu', ng-click='$mdMenu.open($event)')
+							md-icon(md-menu-origin='')
+								i.material-icons
+									|	more_vert
+						md-menu-content(width='2')
+							md-menu-item
+								md-button()
+									|	Edit
+							md-menu-item
+								md-button()
+									|	Delete
+				.main-grid-tile-content
+					img(src='assets/img/tile-placeholder.png', alt='Product A')
+				md-grid-tile-footer.main-grid-tile-footer
+					h4
+						|	Product B

@@ -60,5 +60,7 @@ define(['act-lazy', 'act-rest', 'act-log'], function() {
   angular.module('act.Auth', ['act.Base']);
   angular.module('act.Main', ['act.Base']);
   angular.module('act.Main.Users', ['act.Base']);
+  angular.module('act.Main.Products', ['act.Base']);
+
 
 });

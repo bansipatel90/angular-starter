@@ -9,7 +9,8 @@ define([
   'app/base/base.config',
   'app/auth/auth.config',
   'app/main/main.config',
-  'app/main-users/main-users.config'
+  'app/main-users/main-users.config',
+  'app/main-products/main-products.config'
 ], function() {
 
   angular.module('act', [
@@ -20,6 +21,7 @@ define([
     'act.Auth',
     'act.Main',
     'act.Main.Users',
+    'act.Main.Products',
 
     // All 3rd party modules
     'ngMaterial',

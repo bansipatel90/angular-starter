@@ -113,7 +113,7 @@ define([
      *
      * @param      {Object}  $injector  Angular's $injector service (dependency injection)
      */
-    function routeOtherwiseConfig() {
+    function routeOtherwiseConfig($injector) {
       var $state = $injector.get('$state');
       $state.go('app.error');
     }
